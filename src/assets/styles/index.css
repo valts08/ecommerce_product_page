@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: KumbhSans;
+    src: url(../fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ\,wght.ttf);
+}
+
+* {
+    font-family: KumbhSans;
+    box-sizing: content-box;
+}
