@@ -12,7 +12,7 @@ const ItemPhotoGallery = () => {
 
     return (
         <div className="flex flex-col">
-            <img src={MainProductImage} alt="main-image" className="min-w-[448px] h-[445px] rounded-lg cursor-pointer"/>
+            <img src={MainProductImage} alt="main-image" className="min-w-[448px] h-[445px] md:rounded-lg cursor-pointer "/>
             {!mediumScreenSize && 
             <div className="flex justify-between pt-[2em]">
                 {thumbnailList && thumbnailList.map((thumbnail, i) => {

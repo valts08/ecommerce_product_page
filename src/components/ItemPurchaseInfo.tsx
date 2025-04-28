@@ -4,7 +4,7 @@ import QuantityBox from "./QuantityBox"
 const ItemPurchaseInfo = () => {
 
     return (
-        <div className="flex flex-col gap-[1.5em] self-center lg:max-w-50/100 lg:min-w-40/100">
+        <div className="flex flex-col gap-[1.5em] self-center lg:max-w-50/100 lg:min-w-40/100 md:px-0 px-[1.75em]">
             <h3 className="uppercase tracking-widest font-bold text-[14px] text-neutral-500">Sneaker Company</h3>
             <h1 className="font-semibold text-4xl">Fall Limited Edition Sneakers</h1>
             <p className="text-neutral-500">
