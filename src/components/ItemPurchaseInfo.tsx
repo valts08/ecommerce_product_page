@@ -1,7 +1,8 @@
-import AddToCartButton from "./AddToCartButton"
-import QuantityBox from "./QuantityBox"
+import BuyItemSection from "./BuyItemSection"
 
 const ItemPurchaseInfo = () => {
+
+    const itemPrice: number = 125
 
     return (
         <div className="flex flex-col gap-[1.5em] self-center lg:max-w-50/100 lg:min-w-40/100 md:px-0 px-[1.75em]">
@@ -18,10 +19,7 @@ const ItemPurchaseInfo = () => {
                 </div>
                 <span className="place-self-start border-1 px-[4px] pb-[4px] rounded-md text-white bg-neutral-950 max-h-[20px] font-semibold">50%</span>
             </div>
-            <div className="flex lg:flex-row flex-col gap-5">
-                <QuantityBox />
-                <AddToCartButton />
-            </div>
+            <BuyItemSection price={itemPrice}/>
         </div>
     )
 }
