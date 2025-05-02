@@ -1,11 +1,8 @@
-import { useSelector } from "react-redux"
-import { RootState } from "../../store/store"
+import { useAppSelector } from "../../hooks/storeHooks"
 import CartItemList from "./CartItemList"
 
 const Cart = () => {
-
-    // idk why it still shows that its of type unknown, probably cuz of how the slice file is set up = not using TS
-    const products = useSelector<RootState>((state) => state.products)
+    const products = useAppSelector(state => state.products)
     const listIsEmpty = products.length == 0 
 
     return (

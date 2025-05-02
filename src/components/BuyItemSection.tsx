@@ -1,16 +1,14 @@
 import MinusIcon from "../assets/images/icon-minus.svg"
 import PlusIcon from "../assets/images/icon-plus.svg"
 import CartIcon from "../assets/images/icon-cart.svg"
-import { RootState } from "../store/store"
 import { addProduct } from "../store/product_slice/productSlice"
-import { useDispatch, useSelector } from "react-redux"
+import { useAppDispatch } from "../hooks/storeHooks"
 import { useState } from "react"
 
 const BuyItemSection = ({ price }: { price: number}) => {
     const [itemQuantity, setItemQuantity] = useState(0)
     const [itemAdded, setItemAdded] = useState(false)
-    const products = useSelector((state: RootState) => state.products)
-    const dispath = useDispatch()
+    const dispath = useAppDispatch()
 
     const incrementQuantity = () => {
         if (!itemAdded) {
@@ -29,7 +27,6 @@ const BuyItemSection = ({ price }: { price: number}) => {
 
     const handleAddToCart = () => {
         dispath(addProduct({ name: "Fall Limited Edition Sneakers", quantity: itemQuantity, price: price }))
-        console.log(products)
         setItemAdded(prevState => !prevState)
     }
 

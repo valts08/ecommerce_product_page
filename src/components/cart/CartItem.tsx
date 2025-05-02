@@ -1,13 +1,7 @@
 import ProductImg from "../../assets/images/image-product-1-thumbnail.jpg"
 import DeleteIcon from "../../assets/images/icon-delete.svg"
 
-type ProductAttributes = {
-    name: string,
-    price: number,
-    quantity: number
-}
-
-const CartItem = ({ product }: { product: ProductAttributes }) => {
+const CartItem = (product: any) => {
 
     return (
         <div className="flex justify-between">
