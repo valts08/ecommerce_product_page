@@ -4,7 +4,7 @@ import UserAvatar from "../assets/images/image-avatar.png"
 import MenuIcon from "../assets/images/icon-menu.svg"
 import { useState } from "react"
 import { createPortal } from "react-dom"
-import Cart from "./Cart"
+import Cart from "./cart/Cart"
 
 const NavBar = () => {
 

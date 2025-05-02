@@ -1,27 +1,36 @@
 import MinusIcon from "../assets/images/icon-minus.svg"
 import PlusIcon from "../assets/images/icon-plus.svg"
 import CartIcon from "../assets/images/icon-cart.svg"
+import { RootState } from "../store/store"
 import { addProduct } from "../store/product_slice/productSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 
 const BuyItemSection = ({ price }: { price: number}) => {
     const [itemQuantity, setItemQuantity] = useState(0)
+    const [itemAdded, setItemAdded] = useState(false)
+    const products = useSelector((state: RootState) => state.products)
     const dispath = useDispatch()
 
     const incrementQuantity = () => {
-        setItemQuantity(prevState => prevState + 1)
+        if (!itemAdded) {
+            setItemQuantity(prevState => prevState + 1)
+        }
     }
 
     const decrementQuantity = () => {
         if (itemQuantity < 1) {
             return
         }
-        setItemQuantity(prevState => prevState - 1)
+        if (!itemAdded) {
+            setItemQuantity(prevState => prevState - 1)
+        }
     }
 
     const handleAddToCart = () => {
-        dispath(addProduct({ name: "sneakers", quantity: itemQuantity, price: price }))
+        dispath(addProduct({ name: "Fall Limited Edition Sneakers", quantity: itemQuantity, price: price }))
+        console.log(products)
+        setItemAdded(prevState => !prevState)
     }
 
     return (
@@ -31,7 +40,7 @@ const BuyItemSection = ({ price }: { price: number}) => {
                 <span className="font-semibold">{itemQuantity}</span>
                 <img src={PlusIcon} alt="plus" className="cursor-pointer" onClick={() => incrementQuantity()}/>
             </div>
-            <button onClick={() => handleAddToCart()} className="flex justify-around border-0 rounded-lg py-4 bg-orange-500 shadow-lg shadow-orange-300/50 lg:w-70/100 cursor-pointer">
+            <button onClick={() => handleAddToCart()} disabled={itemAdded} className={`${itemAdded ? "bg-orange-300 shadow-orange-300/50 cursor-not-allowed" : "bg-orange-500 shadow-orange-500/50 cursor-pointer"} flex justify-around border-0 rounded-lg py-4 shadow-lg lg:w-70/100`}>
                 <div className="flex m-auto">
                     <img src={CartIcon} alt="cart-img" className="w-[18px] h-[16px] pr-2 brightness-0 self-center"/>
                     <span className="font-semibold text-nowrap">Add to cart</span>
