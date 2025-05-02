@@ -16,7 +16,7 @@ const ItemPhotoGallery = () => {
             {!mediumScreenSize && 
             <div className="flex justify-between pt-[2em]">
                 {thumbnailList && thumbnailList.map((thumbnail, i) => {
-                    return <ThumbnailImg image={thumbnail} number={i}/>
+                    return <ThumbnailImg key={i} image={thumbnail} number={i}/>
                 })}
             </div>}
         </div>

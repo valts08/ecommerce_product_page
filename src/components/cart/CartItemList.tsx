@@ -7,8 +7,8 @@ const CartItemList = () => {
     // dispatch gets it there(checked with RTK chrome extension)
     return (
         <div>
-            {products.map((product) => {
-                return <CartItem product={product}/>
+            {products.map((product, i) => {
+                return <CartItem key={i} product={product}/>
             })}
         </div>
     )

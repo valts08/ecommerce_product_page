@@ -26,8 +26,10 @@ const BuyItemSection = ({ price }: { price: number}) => {
     }
 
     const handleAddToCart = () => {
-        dispath(addProduct({ name: "Fall Limited Edition Sneakers", quantity: itemQuantity, price: price }))
-        setItemAdded(prevState => !prevState)
+        if (itemQuantity) {
+            dispath(addProduct({ name: "Fall Limited Edition Sneakers", quantity: itemQuantity, price: price }))
+            setItemAdded(prevState => !prevState)
+        }
     }
 
     return (
