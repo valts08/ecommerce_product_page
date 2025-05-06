@@ -15,7 +15,7 @@ const ItemPhotoGallery = () => {
     
     return (
         <>
-            {images.open && createPortal(<PictureModal />, document.body)}
+            {images.open && createPortal(<div className="absolute bg-neutral-950/80 h-[100dvh] w-[100dvw] top-0"><PictureModal /></div>, document.body)}
             <div className="flex flex-col">
                 <img src={images.mainImages.at(images.mainImageId % images.mainImages.length)} alt="main-image" onClick={() => handleModalOpen()} className="min-w-[448px] h-[445px] md:rounded-lg cursor-pointer"/>
                 {!mediumScreenSize && 
