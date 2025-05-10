@@ -9,3 +9,7 @@
     font-family: KumbhSans;
     box-sizing: content-box;
 }
+
+html {
+    font-size: 16px;
+}
