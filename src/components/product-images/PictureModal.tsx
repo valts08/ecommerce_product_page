@@ -22,7 +22,7 @@ const PictureModal = () => {
     }
 
     return (
-        <div className="absolute flex flex-col top-[5rem] left-[32%] mx-auto">
+        <div className="absolute flex flex-col top-[5rem] md:left-[25%] lg:left-[32%] mx-auto">
             <img className="h-[20px] w-[20px] pb-3 cursor-pointer self-end" src={CloseModalIcon} alt="close-modal" onClick={() => handleModalClose()}/>
             <img className="h-[550px] w-[550px] border-0 rounded-lg aspect-square" src={images.mainImages.at(images.mainImageId % images.mainImages.length)} alt="modal-image"/>
             <div className="flex absolute mt-[17.5rem]">

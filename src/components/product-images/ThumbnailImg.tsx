@@ -7,18 +7,19 @@ type ThumbnailImgTypes = {
     image: string
 }
 
-const ThumbnailImg = ({number, image}: ThumbnailImgTypes) => {
+const ThumbnailImg = ({ number, image }: ThumbnailImgTypes) => {
     const dispatch = useAppDispatch()
     const { mainImageId, mainImages } = useAppSelector(state => state.images)
-    const activeImageStyling = "border-orange-500 opacity-50 border-2"
-    const imageHoverStyling = "hover:border-orange-500 hover:opacity-50 hover:border-2"
+    const activeImageStyling = "border-orange-500 opacity-50 border-3"
+    const imageHoverStyling = "hover:border-orange-500 hover:opacity-50 hover:border-3"
+    const currentImage: string | undefined = mainImages.at(mainImageId % mainImages.length)
 
     const handleMainImageChange = () => {
         dispatch(setImage(number))
     }
 
     return (
-        <img src={image} alt={`thumbnail-img-${number}`} className={`w-[88px] h-[88px] rounded-lg cursor-pointer ${imageHoverStyling} ${Math.abs(mainImageId % mainImages.length) == number ? activeImageStyling : ""}`} onClick={() => handleMainImageChange()}/>
+        <img src={image} alt={`thumbnail-img-${number}`} className={`w-[88px] h-[88px] rounded-lg cursor-pointer ${imageHoverStyling} ${mainImages.indexOf(currentImage!) == number ? activeImageStyling : ""}`} onClick={() => handleMainImageChange()}/>
     )
 }
 
