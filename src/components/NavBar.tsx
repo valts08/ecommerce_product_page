@@ -12,6 +12,8 @@ const NavBar = () => {
     const [showCart, setShowCart] = useState(false)
     const products = useAppSelector(state => state.products)
     const mediumScreenSize = window.innerWidth < 767
+    const userImgHoverStyles = "hover:border-3 hover:border-amber-500 hover:rounded-full"
+    const pageLinkHoverStyles = "hover:border-b-3 hover:text-black hover:border-amber-500"
 
     const toggleShowCart = () => {
         setShowCart(prevState => !prevState)
@@ -23,11 +25,11 @@ const NavBar = () => {
                 {mediumScreenSize && <img src={MenuIcon} alt="side-menu-icon" className="w-[16px] h-[15px] mr-4"/>}
                 <img src={CompanyLogoImage} alt="company-logo" className="h-[20px]" />
                     {!mediumScreenSize && <ul className="flex lg:gap-6 md:gap-4 ml-[3em]">
-                        <li>Collections</li>
-                        <li>Men</li>
-                        <li>Women</li>
-                        <li>About</li>
-                        <li>Contact</li>
+                        <li className={`${pageLinkHoverStyles}`}>Collections</li>
+                        <li className={`${pageLinkHoverStyles}`}>Men</li>
+                        <li className={`${pageLinkHoverStyles}`}>Women</li>
+                        <li className={`${pageLinkHoverStyles}`}>About</li>
+                        <li className={`${pageLinkHoverStyles}`}>Contact</li>
                     </ul>}
             </section>
             <section className="flex place-items-center justify-between gap-6">
@@ -42,7 +44,7 @@ const NavBar = () => {
                     </div>}
                     <img src={CartImage} onClick={() => toggleShowCart()} alt="cart-icon" className="self-end h-[20px] w-[22px] hover:cursor-pointer" />
                 </div>
-                <img src={UserAvatar} alt="user-avatar" className="md:w-[50px] md:h-[50px] w-[24px] h-[24px] rounded-lg" />
+                <img src={UserAvatar} alt="user-avatar" className={`${userImgHoverStyles} md:w-[50px] md:h-[50px] w-[24px] h-[24px] rounded-lg`} />
             </section>
             {showCart && createPortal(<Cart />, document.body)}
         </nav>
