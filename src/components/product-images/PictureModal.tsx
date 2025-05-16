@@ -22,9 +22,9 @@ const PictureModal = () => {
     }
 
     return (
-        <div className="absolute flex flex-col top-[5rem] md:left-[25%] lg:left-[32%] mx-auto">
+        <div className="absolute flex flex-col top-[27.5%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-auto">
             <img className="h-[20px] w-[20px] pb-3 cursor-pointer self-end" src={CloseModalIcon} alt="close-modal" onClick={() => handleModalClose()}/>
-            <img className="h-[550px] w-[550px] border-0 rounded-lg aspect-square" src={images.mainImages.at(images.mainImageId % images.mainImages.length)} alt="modal-image"/>
+            <img className="h-[550px] min-w-[550px] border-0 rounded-lg aspect-square" src={images.mainImages.at(images.mainImageId % images.mainImages.length)} alt="modal-image"/>
             <div className="flex absolute mt-[17.5rem]">
                 <div className="flex translate-x-[-1.75rem] place-items-center h-[56px] w-[56px] border-0 bg-white rounded-full  cursor-pointer" onClick={() => handleSwitchImgPrevious()}>
                     <img className="h-[16px] w-[12px] m-auto" src={PrevImgIcon} alt="previous-img-icon"/>
