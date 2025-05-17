@@ -29,7 +29,7 @@ const ItemPhotoGallery = () => {
     
     return (
         <>
-            {images.open && createPortal(<div className="absolute bg-neutral-950/80 min-h-[100rem] w-[100dvw] top-0"><PictureModal /></div>, document.body)}
+            {images.modalOpen && createPortal(<div className="absolute bg-neutral-950/80 min-h-[100rem] w-[100dvw] top-0"><PictureModal /></div>, document.body)}
             <div className="relative flex flex-col">
                 <img src={images.mainImages.at(images.mainImageId % images.mainImages.length)} alt="main-image" onClick={() => handleModalOpen()} className={`object-cover min-w-[448px] h-[445px] md:rounded-lg ${!mediumScreenSize ? "cursor-pointer" : ""}`}/>
                     {largeScreenSize && 
