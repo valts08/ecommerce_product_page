@@ -12,9 +12,9 @@ const productSlice = createSlice({
             })
         },
         deleteProduct: (state, action) => {
-            state.filter(stateItem => {
-                // console.log(stateItem.name, "/", action.payload)
-                return stateItem.name !== action.payload
+            state.forEach(stateItem => {
+                const itemToDelete = state.indexOf(stateItem.name)
+                state.splice(itemToDelete, 1)
             })
         }
     }
